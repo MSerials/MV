@@ -1,0 +1,59 @@
+﻿<Page x:Class="MachineVision.FunctionList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MachineVision"
+      xmlns:i="clr-namespace:MachineVision"
+      xmlns:mode="clr-namespace:MachineVision"
+   
+      mc:Ignorable="d"
+      Title="FunctionList" Height="1024" Width="1648.022">
+    <Grid Margin="0,0,-1192,0" HorizontalAlignment="Left" Width="1080">
+        <StackPanel Background="#202032" HorizontalAlignment="Left" Height="518" VerticalAlignment="Top" Width="205">
+            <TreeView Name="TreeFun" AllowDrop="False">
+                <TreeViewItem Header="A">
+                    <TreeViewItem Header="SubA"/>
+                </TreeViewItem>
+
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <!-- We have to select the item which is right-clicked on -->
+                        <!--<EventSetter Event="TreeViewItem.PreviewMouseRightButtonDown" Handler="TreeViewItem_PreviewMouseRightButtonDown"/>-->
+                        <EventSetter Event="TreeViewItem.DragOver" Handler="treeView_DragOver"/>
+                        <EventSetter Event="TreeViewItem.Drop" Handler="treeView_Drop"/>
+                        <EventSetter Event="TreeViewItem.MouseMove" Handler="treeView_MouseMove"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+            </TreeView>
+        </StackPanel>
+
+
+
+
+
+
+        <StackPanel Background="#202032" HorizontalAlignment="Left" Height="848" Margin="208,0,0,0" VerticalAlignment="Top" Width="187">
+            <!--创建list-->
+            <ListBox x:Name="lbOne" 
+                     PreviewMouseLeftButtonDown="ListBox_PreviewMouseLeftButtonDown"
+                     HorizontalAlignment="Left" Margin="-1,29,0,12" Width="211" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="462" RenderTransformOrigin="0.5,0.5">
+                
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel Background="#202032" HorizontalAlignment="Left" Height="848" Margin="404,0,0,0" VerticalAlignment="Top" Width="210">
+            <ListBox x:Name="lbTwo" Drop="ListBox_Drop" AllowDrop="True" HorizontalAlignment="Right" Margin="-1,29,0,12" Width="211" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="462" RenderTransformOrigin="0.5,0.5">
+                <ListBox.RenderTransform>
+                    <TransformGroup>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ListBox.RenderTransform>
+            </ListBox>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
